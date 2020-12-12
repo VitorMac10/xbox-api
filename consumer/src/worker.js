@@ -1,4 +1,4 @@
-const queue = require("./services/queue");
+const queue = require('./services/queue');
 const Service = require('./services/api-service');
 
 console.log("===== Queue worker started! =====");
