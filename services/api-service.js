@@ -13,15 +13,15 @@ module.exports = class Service {
     static async simulate(codigo, products = []) {
         const payload = {
             id: codigo,
-            itens: products.map(product => ({
-                name: product.nome,
-                id: product.codigo,
-                price: product.preco
-            }))
+            itens: products.map(({
+                nome: name,
+                codigo: id,
+                preco: price
+            }) => ({ name, id, price }))
         };
 
         const response = await axios.post('/simulate', payload);
-        const message = response.data;
+        const { data: message } = response;
 
         if (message.approved) {
             return axios.post('/message', {
@@ -33,5 +33,4 @@ module.exports = class Service {
             id: message.id
         });
     }
-
 }

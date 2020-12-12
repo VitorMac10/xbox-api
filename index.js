@@ -4,7 +4,7 @@ const Service = require('./services/api-service');
 const app = express();
 app.use(express.json());
 
-app.post('/', async (req, res) => {
+app.post('/message', async (req, res) => {
     const { codigo, produtos } = req.body;
 
     const response = await Service.simulate(codigo, produtos);
