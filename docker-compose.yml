@@ -6,6 +6,10 @@ services:
       context: ./producer
       dockerfile: Dockerfile
     working_dir: /usr/src/app
+    environment:
+      - PORT=3000
+      - AMQP_URL=amqps://pzecprke:u5A6kwEa91dmGlyiuVIomx_8hLW_yXrt@jackal.rmq.cloudamqp.com/pzecprke
+      - DOJO_API_TOKEN=MDBiNWFlMTBlYzgyNGVjM2JmNjQyOGEzOGM4ODFhYTQ6NWRlZDc3ZjIwZDM0NDc5MjliYmE2Y2RiYWM1ZDc1YjA=
     networks:
       - app-network
     links:
@@ -18,6 +22,10 @@ services:
       context: ./consumer
       dockerfile: Dockerfile
     working_dir: /usr/src/app
+    environment:
+      - PORT=3000
+      - AMQP_URL=amqps://pzecprke:u5A6kwEa91dmGlyiuVIomx_8hLW_yXrt@jackal.rmq.cloudamqp.com/pzecprke
+      - DOJO_API_TOKEN=MDBiNWFlMTBlYzgyNGVjM2JmNjQyOGEzOGM4ODFhYTQ6NWRlZDc3ZjIwZDM0NDc5MjliYmE2Y2RiYWM1ZDc1YjA=
     networks:
       - app-network
     links:
