@@ -28,6 +28,6 @@ module.exports = class Worker {
     }
 
     static delete(codigo) {
-        map.delete(String(codigo));
+        mensagens.delete(String(codigo));
     }
 }
